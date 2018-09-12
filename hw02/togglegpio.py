@@ -5,11 +5,12 @@ import time
 gpio = raw_input("Enter the GPIO pin (ex. PX_XX): ")
 period = input ("Enter the period (in seconds): ")
 
-GPIO.setup(gpio, GPIO.OUT)
+half_period = period/2
+GPIO.setup(str(gpio), GPIO.OUT)
 
 while True:
-    GPIO.output(gpio, GPIO.HIGH)
-    time.sleep(0.5)
-    GPIO.output(gpio, GPIO.LOW)
-    time.sleep(0.5)
+    GPIO.output(str(gpio), GPIO.HIGH)
+    time.sleep(half_period)
+    GPIO.output(str(gpio), GPIO.LOW)
+    time.sleep(half_period)
 
