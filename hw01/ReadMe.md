@@ -10,3 +10,11 @@ Homework 1 items:
 6) Etch-a-sketch: The program is complete. Instructions for the program are printed when it's run. To run, either type "python etch.py" or "./etch.py" into the terminal and press enter
 
 
+==========================
+Professor Yoder's comments
+
+Looks good
+I don't see option to change size.
+It crashes if I try to go too far right or down.
+
+Score:  9/10
