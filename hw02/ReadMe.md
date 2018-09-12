@@ -18,6 +18,7 @@ Homework 2 items:
 
 	Measuring a gpio pin on an Oscilloscope:
 
+		The results for this section are in the Results.pdf file.
 
 	Etch-a-sketch:
 		
