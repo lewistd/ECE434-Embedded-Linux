@@ -5,14 +5,14 @@ import Adafruit_BBIO.GPIO as GPIO
 
 #print out the instructions
 print "\nINSTRUCTIONS:"
-print "\nUp arrow moves up 1 space"
-print "Down arrow moves down 1 space"
-print "Right arrow moves right 1 space"
-print "Left arrow moves left 1 space"
+print "\nButton 1 moves right 1 space"
+print "Button 2 moves left 1 space"
+print "Button 3 moves up 1 space"
+print "Button 4 moves down 1 space"
 print "Press 'p' to pick up the pen"
-print "Press 'c' to clear screen and return to starting position"
+print "Press 'c' to clear screen and return to starting position or press the clear button"
 print "Press backspace to exit the program"
-print "\nThe pen can also be moved with the buttons attached to the Beaglebone"
+print "Button mappings are in the ReadMe.md file"
 raw_input("\nPress enter to begin: ")
 #initialize the screen
 stdscr = curses.initscr()
@@ -30,11 +30,13 @@ button1 = "P9_42"
 button2 = "P9_27"
 button3 = "P9_23"
 button4 = "P9_25"
+buttonClear = "P9_26"
 #set the buttons as inputs
 GPIO.setup(button1, GPIO.IN)
 GPIO.setup(button2, GPIO.IN)
 GPIO.setup(button3, GPIO.IN)
 GPIO.setup(button4, GPIO.IN)
+GPIO.setup(buttonClear, GPIO.IN)
 #when button 1 is pressed, mark an 'x' if necessary and move one space right
 def callback1(var):
 	y, x = stdscr.getyx()
@@ -54,18 +56,25 @@ def callback2(var):
 	stdscr.refresh()
 def callback3(var):
 	y, x = stdscr.getyx()
-        stdscr.move(y+1,x)
-        if pen_down:
-            stdscr.addstr('x')
-            stdscr.move(y+1,x)
-	stdscr.refresh()
-def callback4(var):
-	y, x = stdscr.getyx()
         if y != 0:
             stdscr.move(y-1,x)
             if pen_down:
                 stdscr.addstr('x')
                 stdscr.move(y-1,x)
+        stdscr.refresh()
+def callback4(var):
+	y, x = stdscr.getyx()
+	stdscr.move(y+1,x)
+        if pen_down:
+            stdscr.addstr('x')
+            stdscr.move(y+1,x)
+        stdscr.refresh()
+def callback5(var):
+	stdscr.clear()
+        stdscr.move(0,0)
+        if pen_down:
+            stdscr.addstr('x')
+            stdscr.move(0,0)
 	stdscr.refresh()
 
 #add each interrupt so they are listened for
@@ -73,7 +82,7 @@ GPIO.add_event_detect(button1, GPIO.RISING, callback=callback1, bouncetime=300)
 GPIO.add_event_detect(button2, GPIO.RISING, callback=callback2, bouncetime=300)
 GPIO.add_event_detect(button3, GPIO.RISING, callback=callback3, bouncetime=300)
 GPIO.add_event_detect(button4, GPIO.RISING, callback=callback4, bouncetime=300)
-
+GPIO.add_event_detect(buttonClear, GPIO.RISING, callback=callback5, bouncetime=300)
 #mark starting position
 stdscr.addch('x')
 stdscr.move(0,0)
@@ -85,35 +94,36 @@ while True:
     #get the yx location of the cursor
     y, x = stdscr.getyx()
     #based on the key that's pressed move, clear, or exit
-    if ch == curses.KEY_DOWN:
-        y = y+1
-        stdscr.move(y,x)
-        if pen_down:
-            stdscr.addstr('x')
-            stdscr.move(y,x)
+# ***Commented out code that uses the arrow keys to move the cursor***
+#    if ch == curses.KEY_DOWN:
+#        y = y+1
+#        stdscr.move(y,x)
+#        if pen_down:
+#            stdscr.addstr('x')
+#            stdscr.move(y,x)
 
-    if ch == curses.KEY_UP:
-        if y != 0:
-            y = y-1
-            stdscr.move(y,x)
-            if pen_down:
-                stdscr.addstr('x')
-                stdscr.move(y,x)
+#    if ch == curses.KEY_UP:
+#        if y != 0:
+#            y = y-1
+#            stdscr.move(y,x)
+#            if pen_down:
+#                stdscr.addstr('x')
+#                stdscr.move(y,x)
 
-    if ch == curses.KEY_RIGHT:
-        x = x+1
-        stdscr.move(y,x)
-        if pen_down:
-            stdscr.addstr('x')
-            stdscr.move(y,x)
+#    if ch == curses.KEY_RIGHT:
+#        x = x+1
+#        stdscr.move(y,x)
+#        if pen_down:
+#            stdscr.addstr('x')
+#            stdscr.move(y,x)
 
-    if ch == curses.KEY_LEFT:
-        if x != 0:
-            x = x-1
-            stdscr.move(y,x)
-            if pen_down:
-                stdscr.addstr('x')
-                stdscr.move(y,x)
+#    if ch == curses.KEY_LEFT:
+#        if x != 0:
+#            x = x-1
+#            stdscr.move(y,x)
+#            if pen_down:
+#                stdscr.addstr('x')
+#                stdscr.move(y,x)
 
     if ch == ord('c'):
         #clear the screen and return to start position

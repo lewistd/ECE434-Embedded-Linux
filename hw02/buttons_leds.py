@@ -18,6 +18,10 @@ GPIO.setup(button1, GPIO.IN)
 GPIO.setup(button2, GPIO.IN)
 GPIO.setup(button3, GPIO.IN)
 GPIO.setup(button4, GPIO.IN)
+
+print "\nUse the pushbuttons to turn on the LEDs"
+print "Button mappings to LEDs are in the ReadMe.md file"
+print "Press button 1 and button 2 simultaneously to exit the program."
 #while button 1 is being pressed, turn on led 1 and check for exit case
 def callback1(var): 
 	while GPIO.input(button1):
@@ -30,6 +34,10 @@ def callback1(var):
 #while button 2 is pressed, turn on led 2, turn off when released
 def callback2(var):
 	while GPIO.input(button2):
+		if GPIO.input(button1):
+                        GPIO.output(led2, GPIO.LOW)
+                        GPIO.cleanup()
+                        exit()
 		GPIO.output(led2, GPIO.HIGH)
 	GPIO.output(led2, GPIO.LOW)
 def callback3(var):
