@@ -26,10 +26,11 @@ Homework 2 items:
 		keys still work. To run the program, type "python etch.py" in the command line while in the folder containing the
 		file. Instructions for the program are printed at the start of the program. 
 
-	Extras:
+	Extras (optional?):
 
 		There is a button to clear and reset the display.
 		Pressing 'c' will also clear and reset the display.
 		Pressing 'p' will pick up the pen so that the trace is no longer shown. Pressing 'p' again will put the pen back down.
-		Modify togglegpio.c: did not have time to complete
-		Modify gpio-int-test.c: did not have time to complete
+		Modify togglegpio.c: takes the gpio number and takes on and off times separately (in us). There is an interrupt handler
+				     that detects ctrl+C and closes properly.
+		Modify gpio-int-test.c: set to count only releases, count implemented (but still buggy).
