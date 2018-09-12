@@ -31,6 +31,8 @@ Homework 2 items:
 		There is a button to clear and reset the display.
 		Pressing 'c' will also clear and reset the display.
 		Pressing 'p' will pick up the pen so that the trace is no longer shown. Pressing 'p' again will put the pen back down.
-		Modify togglegpio.c: takes the gpio number and takes on and off times separately (in us). There is an interrupt handler
+		Modify togglegpio.c: Run with "./togglegpio" to see further instructions.
+				     takes the gpio number and takes on and off times separately (in us). There is an interrupt handler
 				     that detects ctrl+C and closes properly.
-		Modify gpio-int-test.c: set to count only releases, count implemented (but still buggy).
+		Modify gpio-int-test.c: Run with "./gpio-int-test" to see further instructions.
+				        set to count only releases, count implemented (but still buggy).
