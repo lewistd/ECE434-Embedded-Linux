@@ -21,8 +21,8 @@ curses.noecho()
 #allow alternate keys to be used
 stdscr.keypad(True)
 
-x = 0
-y = 0
+max_y, max_x = stdscr.getmaxyx()
+
 #this will determine whether to write out to screen
 pen_down = True
 
@@ -40,19 +40,20 @@ GPIO.setup(buttonClear, GPIO.IN)
 #when button 1 is pressed, mark an 'x' if necessary and move one space right
 def callback1(var):
 	y, x = stdscr.getyx()
-        stdscr.move(y,x+1)
-        if pen_down:
-            stdscr.addstr('x')
-            stdscr.move(y,x+1)
+	if x < max_x-1:
+        	stdscr.move(y,x+1)
+        	if pen_down:
+            		stdscr.addstr('x')
+            		stdscr.move(y,x+1)
 	stdscr.refresh()
 #while button 2 is pressed, turn on led 2, turn off when released
 def callback2(var):
 	y, x = stdscr.getyx()
 	if x != 0:
-            stdscr.move(y,x-1)
-            if pen_down:
-                stdscr.addstr('x')
-                stdscr.move(y,x-1)
+		stdscr.move(y,x-1)
+            	if pen_down:
+                	stdscr.addstr('x')
+                	stdscr.move(y,x-1)
 	stdscr.refresh()
 def callback3(var):
 	y, x = stdscr.getyx()
@@ -64,10 +65,11 @@ def callback3(var):
         stdscr.refresh()
 def callback4(var):
 	y, x = stdscr.getyx()
-	stdscr.move(y+1,x)
-        if pen_down:
-            stdscr.addstr('x')
-            stdscr.move(y+1,x)
+	if y < (max_y-1):
+		stdscr.move(y+1,x)
+        	if pen_down:
+            		stdscr.addstr('x')
+            		stdscr.move(y+1,x)
         stdscr.refresh()
 def callback5(var):
 	stdscr.clear()
@@ -96,11 +98,12 @@ while True:
     #based on the key that's pressed move, clear, or exit
 # ***Commented out code that uses the arrow keys to move the cursor***
 #    if ch == curses.KEY_DOWN:
-#        y = y+1
-#        stdscr.move(y,x)
-#        if pen_down:
-#            stdscr.addstr('x')
-#            stdscr.move(y,x)
+#	if y < (max_y-1):
+#        	y = y+1
+#        	stdscr.move(y,x)
+#        	if pen_down:
+#            		stdscr.addstr('x')
+#            		stdscr.move(y,x)
 
 #    if ch == curses.KEY_UP:
 #        if y != 0:
@@ -111,11 +114,12 @@ while True:
 #                stdscr.move(y,x)
 
 #    if ch == curses.KEY_RIGHT:
-#        x = x+1
-#        stdscr.move(y,x)
-#        if pen_down:
-#            stdscr.addstr('x')
-#            stdscr.move(y,x)
+#	if x < (max_x-1):
+#        	x = x+1
+#        	stdscr.move(y,x)
+#        	if pen_down:
+#            		stdscr.addstr('x')
+#            		stdscr.move(y,x)
 
 #    if ch == curses.KEY_LEFT:
 #        if x != 0:
