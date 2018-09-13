@@ -70,7 +70,7 @@ int main(int argc, char **argv, char **envp)
 {
 	struct pollfd fdset[2];
 	int nfds = 2;
-	int gpio_fd, timeout, rc;
+	int gpio_fd, gpio_fd2, value, timeout, rc;
 	char buf[MAX_BUF];
 	unsigned int gpio;
 	int len;
@@ -91,6 +91,10 @@ int main(int argc, char **argv, char **envp)
 	gpio_set_dir(gpio, "in");
 	gpio_set_edge(gpio, "falling");  // Can be rising, falling or both
 	gpio_fd = gpio_fd_open(gpio, O_RDONLY);
+
+	gpio_export(30);
+	gpio_set_dir(30, "out");
+	gpio_fd2 = gpio_fd_open(30, O_RDONLY);
 
 	timeout = POLL_TIMEOUT;
  
@@ -119,8 +123,11 @@ int main(int argc, char **argv, char **envp)
 			len = read(fdset[1].fd, buf, MAX_BUF);
 			printf("\npoll() GPIO %d interrupt occurred, value=%c, len=%d\n",
 				 gpio, buf[0], len);
+			gpio_get_value(gpio, &value);
+			gpio_set_value(30,value);
 			count++;
 			printf("count = %d\n", count);
+			usleep(1000000);
 		}
 
 		if (fdset[0].revents & POLLIN) {
@@ -132,6 +139,7 @@ int main(int argc, char **argv, char **envp)
 	}
 
 	gpio_fd_close(gpio_fd);
+	gpio_fd_close(30);
 	return 0;
 }
 

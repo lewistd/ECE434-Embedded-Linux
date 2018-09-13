@@ -35,5 +35,6 @@ Homework 2 items:
 		Modify togglegpio.c: Run with "./togglegpio" to see further instructions.
 				     takes the gpio number and takes on and off times separately (in us). There is an interrupt handler
 				     that detects ctrl+C and closes properly. The highest frequency I found with the function was 3.625 khz.
-		Modify gpio-int-test.c: Run with "./gpio-int-test" to see further instructions.
+		Modify gpioThru.c: Run with "./gpioThru" to see further instructions.
 				        set to count only releases, count implemented (but still buggy).
+					Code added to duplicate the input gpio's value to output on gpio30
