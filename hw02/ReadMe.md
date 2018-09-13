@@ -3,7 +3,7 @@ Trey Lewis      ECE 434
 Homework 2 items:
 
         Buttons and LEDs:
-
+		This program is fully functional.
                 Wired circuit with 4 pushbuttons and 4 LEDs. My program is written in Python and lights up a LED when the      
                 corresponding button is pressed. To run the program, type "python buttons_leds.py" in the command line while
 		in the folder containing the file. To exit, press buttons 1 and 2 simultaneously. A list of the pin locations
@@ -22,7 +22,7 @@ Homework 2 items:
 
 	Etch-a-sketch:
 		
-		The update to my program is complete. Code to control the cursor with arrow keys has been commented out, and
+		The update to my program is complete and fully functional. Code to control the cursor with arrow keys has been commented out, and
 		the only way to control it is with pushbuttons on the pins specified above. Use of the 'p', 'c', and 'backspace'
 		keys still work. To run the program, type "python etch.py" in the command line while in the folder containing the
 		file. Instructions for the program are printed at the start of the program. 
