@@ -38,3 +38,10 @@ Homework 2 items:
 		Modify gpioThru.c: Run with "./gpioThru" to see further instructions.
 				        set to count only releases, count implemented (but still buggy).
 					Code added to duplicate the input gpio's value to output on gpio30
+
+========================
+Professor Yoder's Comments
+
+Looks very good.  Nice and complete.  Good tables.
+
+Score:10/10
