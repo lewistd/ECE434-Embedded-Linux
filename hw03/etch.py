@@ -14,6 +14,7 @@ myEncoder2.setAbsolute()
 myEncoder2.enable()
 
 y = 0
+x = 0
 
 bus.write_byte_data(matrix, 0x21, 0)   # Start oscillator (p10)
 bus.write_byte_data(matrix, 0x81, 0)   # Disp on, blink off (p11)
@@ -25,22 +26,59 @@ display = [0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 bus.write_i2c_block_data(matrix, 0, display)
 
 #print out the instructions
+print "\nINSTRUCTIONS:\n"
+print "Use the knobs to control the etch-a-sketch on the 8x8 biLED matrix"
+print "Quit with ctrl+C"
 
 while True:
-	print("Encoder 1: " + str(myEncoder1.position))
-	print("Encoder 2: " + str(myEncoder2.position))
+#	print("Encoder 1: " + str(myEncoder1.position))
+#	print("Encoder 2: " + str(myEncoder2.position))
 
 	if(myEncoder1.position > 0): #move right
-		display[y] = display[y] * 2 + 1
+		x += 1
+		if(x < 8):
+			temp = display[y]
+			display[y] = 1<<x
+			display[y] = display[y] | temp
+#		code for wraparound moving right, decided not to implement the rest
+		elif(x >= 8):
+			x = 0
+			temp = display[y]
+                        display[y] = 1<<x
+			display[y] = display[y] | temp
 	elif(myEncoder1.position < 0): #move left
-		y = 0
+		x -= 1
+		if(x >= 0):
+			temp = display[y]
+			display[y] = 1<<x
+			display[y] = display[y] | temp
+		elif(x < 0):
+			x = 7
+			temp = display[y]
+			display[y] = 1<<x
+			display[y] = display[y] | temp
 	elif(myEncoder2.position > 0): #move down
-		if(y+2 < 16):
-			y += 2
-			display[y] = display[y] * 2 + 1
+		y += 2
+		if(y < 16):
+			temp = display[y]
+			display[y] = 1<<x
+			display[y] = display[y] | temp
+		elif(y >= 16):
+			y = 0
+			temp = display[y]
+                        display[y] = 1<<x
+                        display[y] = display[y] | temp
 	elif(myEncoder2.position < 0): #move up
-		y = 0
-
+		y -= 2
+		if(y >= 0):
+			temp = display[y]
+                        display[y] = 1<<x
+                        display[y] = display[y] | temp
+		elif(y < 0):
+			y = 14
+			temp = display[y]
+                        display[y] = 1<<x
+                        display[y] = display[y] | temp
 	bus.write_i2c_block_data(matrix, 0, display)
 	myEncoder1.zero()
 	myEncoder2.zero()
