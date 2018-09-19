@@ -16,3 +16,10 @@ Homework 3 items:
 		-Display is left where last marked when quitting and resets when run again.
 		-Instructions are printed out when the program starts.
 		-Note: I had to run 'config-pin P8_41 qep' and 'config-pin P8_42 qep' to get one of the encoders to work. The other pins to run this on would be P8_33 and P8_35.
+
+========================
+Professor Yoder's Comments
+
+Looks good.
+
+Score:10/10
