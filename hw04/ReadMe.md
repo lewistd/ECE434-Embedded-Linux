@@ -5,7 +5,8 @@ Homework 4 items:
 	Memory Map:
 
 		-See the MemoryMap pdf file included in this hw04 directory for my version of the BeagleBone memory map.
-	
+		-I also printed out the Memory Map and GPIO register Table 25-5 from the AM335x TRM.
+
 	GPIO via mmap:
 		
 		-All necessary files for this section of the homework are located in the 'mmap' directory.
