@@ -13,8 +13,11 @@ Homework 5 items:
 
 	Installing the Kernel Source:
 
+		I was able to successfully download and build the 4.x Kernel on my host machine then install and run the kernel on my bone.
 
 	Cross-Compiling:
 
+		I was able to successfully complete the exercise and cross-compile the "Hello World" program on my bone. I will include
+		screen captures of the ouput of the program for the host and the bone in the 'cross-compiling' directory along with a.out.
 
 	Kernel Modules:
