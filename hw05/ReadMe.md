@@ -4,6 +4,8 @@ Homework 5 items:
 
 	Project:
 
+		I have added a project the the Project Page, and also put my name on a few projects that I am interested in doing that
+		others have already suggested.
 
 	Make:
 
