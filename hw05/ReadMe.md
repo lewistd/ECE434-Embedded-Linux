@@ -23,3 +23,12 @@ Homework 5 items:
 		screen captures of the ouput of the program for the host and the bone in the 'cross-compiling' directory along with a.out.
 
 	Kernel Modules:
+
+		Part 1:
+			I followed Part 1 of the blog and was able to insert and remove the LKM and see the output printed to the console.
+			I have included the necessary files for building the module along with the module itself in the 'kernel_mods1' 
+			folder. To build the LKM, simply run make. Then the hello.ko kernel mod can be inserted or removed. I have included
+			a screen capture of the output to the terminal.
+
+		Part 2:
+			
