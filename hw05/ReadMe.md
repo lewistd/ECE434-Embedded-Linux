@@ -38,3 +38,9 @@ Homework 5 items:
 			of the output to the terminal from running the mod and user program.
 
 		Part 3:
+			I followed Part 3 of the blog and was able to change the c file to copy P9_15 to P9_16. When I ran the module, the
+			led on P9_16 was successfully inverted with each button press. I have included the necessary files for building and
+			running the module in the 'kernel_mods3' folder as well as a screen capture of the kernel log while running the mod.
+			To build the LKM, run make. Then insert the mod 'gpio_test.ko'. The led will now invert on the button press. Remove
+			the mod when finished. The module also displays other information, like how many times the button was pressed, when
+			the mod is closed.
