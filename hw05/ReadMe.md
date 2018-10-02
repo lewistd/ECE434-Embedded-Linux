@@ -31,4 +31,10 @@ Homework 5 items:
 			a screen capture of the output to the terminal.
 
 		Part 2:
-			
+			I followed Part 2 of the blog and was able to use the character device module to send data from the user space to
+			the kernel space, and back to the user space. I have included the necessary files for building and running the module
+			in the 'kernel_mods2' folder. To build the LKM, run make. Insert the ebbchar.ko kernel mod then run the user program
+			with './test' to send data to the kernel and receive it back. Then remove the mod. I have included a screen capture
+			of the output to the terminal from running the mod and user program.
+
+		Part 3:
