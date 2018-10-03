@@ -44,3 +44,12 @@ Homework 5 items:
 			To build the LKM, run make. Then insert the mod 'gpio_test.ko'. The led will now invert on the button press. Remove
 			the mod when finished. The module also displays other information, like how many times the button was pressed, when
 			the mod is closed.
+
+
+========================
+Professor Yoder's Comments
+
+Looks very good.  Nice and complete.
+Which version of the kernel are you running now?
+
+Score:  10/10

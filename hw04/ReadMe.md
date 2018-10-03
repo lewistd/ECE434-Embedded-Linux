@@ -45,3 +45,11 @@ Homework 4 items:
 		-To play the movie but rotated, run the play_movie_rotated script.
 		-To view my image with text on it, run the image_text script.
 		-I will include pictures I took of the LCD working on my BeagleBone
+
+========================
+Professor Yoder's Comments
+
+Looks very good.  Nice and complete.
+I don't know why the gpioThru.c isn't working.
+
+Score:  10/10
