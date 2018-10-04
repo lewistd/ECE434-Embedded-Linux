@@ -52,4 +52,8 @@ Professor Yoder's Comments
 Looks very good.  Nice and complete.
 Which version of the kernel are you running now?
 
+--- (Trey)  I am running kernel version 4.9.119
+
+my output from 'uname -r'  4.9.119-bone11
+
 Score:  10/10
