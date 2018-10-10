@@ -23,3 +23,8 @@ Homework 7 items:
 		Blynk section above. To run the program, simply type the command './leds.js' in the terminal window and run the
 		project in the Blynk app. I will assume that the correct Auth token is being used. Now, the bone and Blynk app should
 		be connected and all of the functions of the program can be utilized.
+
+========================
+Professor Yoder's Comments
+
+Score:  10/10
