@@ -39,3 +39,10 @@ Homework 6 items:
 
 		11) IRQ Threads are used to wake up the associated handler thread, so when the External Event is requested, it can be
 		    scheduled immediately. 
+
+========================
+Professor Yoder's Comments
+
+Score:  10/10
+
+Try searching "linux mainline"
