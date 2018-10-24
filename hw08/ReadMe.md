@@ -14,3 +14,10 @@ Homework 8 items:
 		This can be seen in the file 'out-heavyload.png' Meanwhile, the non-rt kernel cannot do this, so the task is not 
 		preempted while the background load is running, which causes the runtime to be much greater. These outputs are what I 
 		expected and show the benefits of using an rt kernel for timing-critical tasks.
+
+========================
+Professor Yoder's Comments
+
+Those are the results I was expecting.  Did you try running the noload case out to 500 us?
+
+Score:  10/10
