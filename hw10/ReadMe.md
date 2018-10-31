@@ -38,3 +38,10 @@ Homework 10 items:
 	ThingSpeak (optional):
 
 		I did not have time to repeat the exercise using ThingSpeak.
+
+========================
+Professor Yoder's Comments
+
+Looks logged.  
+
+Score:  10/10
